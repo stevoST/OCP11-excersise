@@ -1,0 +1,8 @@
+-first module
+run in root directory
+compile module
+javac --module-path mods -d feeding feeding/zoo/animal/feeding/*.java feeding/module-info.java
+run
+java --module-path feeding --module zoo.animal.feeding/zoo.animal.feeding.Task
+create jar
+jar -cvf mods/zoo.animal.feeding.jar -C feeding/ .

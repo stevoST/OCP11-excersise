@@ -1,0 +1,1 @@
+javac -p mods -d care care/module-info.java care/zoo/animal/care/details/*.java care/zoo/animal/care/medical/*.java

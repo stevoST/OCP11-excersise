@@ -1,0 +1,56 @@
+-feeding module
+run in root directory
+compile module
+javac --module-path mods -d feeding feeding/zoo/animal/feeding/*.java feeding/module-info.java
+run
+java --module-path feeding --module zoo.animal.feeding/zoo.animal.feeding.Task
+create jar
+jar -cvf mods/zoo.animal.feeding.jar -C feeding/ .
+
+-care module
+javac -p mods -d care care/module-info.java care/zoo/animal/care/details/*.java care/zoo/animal/care/medical/*.java
+jar -cvf mods/zoo.animal.care.jar -C care/ .
+
+-talks module
+javac -p mods -d talks talks/zoo/animal/talks/content/*.java talks/zoo/animal/talks/media/*.java talks/zoo/animal/talks/schedule/*.java talks/module-info.java
+jar -cvf mods/zoo.animal.talks.jar -C talks/ .
+
+-staff module
+javac -p mods -d staff staff/zoo/staff/*.java staff/module-info.java
+jar -cvf mods/zoo.staff.jar -C staff/ .
+
+
+--list modules
+java -p mods --list-modules
+--describe module
+java -p mods -d zoo.animal.feeding
+--show module resolution (like debugging modules)
+java --show-module-resolution -p feeding -m zoo.animal.feeding/zoo.animal.feeding.Task
+--describe module through jar command shows also module-info name
+jar --file mods/zoo.animal.feeding.jar --describe-module
+--shows dependecies used in module
+jdeps -summary mods/zoo.animal.feeding.jar
+-- more detailed information without summary option
+jdeps mods/zoo.animal.feeding.jar
+
+jdeps -summary --module-path mods mods/zoo.animal.care.jar
+jdeps --module-path mods mods/zoo.animal.care.jar
+
+jmod archive that can contain other files than class or resource files. something that cant go inside jar
+-create
+-exctract
+-describe
+-list content of jmod
+-hash
+-------
+cp compilation
+../programmer1/chapter11
+$ javac -d test feeding/zoo/animal/feeding/Task.java
+javac -cp test -d test care/zoo/animal/care/details/HippoBirthDay.java
+create jar file
+jar -cvf test/zoo.animal.care.jar -C test/zoo/animal/feeding Task.class
+from test folder
+java zoo.animal.feeding.Task
+
+javap .classfile dissasemble
+javap -c .classfile bytecode
