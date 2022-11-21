@@ -1,0 +1,11 @@
+cyclic dependencies
+
+javac -d butterflyModule butterflyModule/zoo/butterfly/Butterfly.java butterflyModule/module-info.java
+
+jar -cvf mods/zoo.butterfly.jar -C butterflyModule/ .
+
+javac -p mods -d caterpillarModule/zoo/caterpillar/*.java caterpillarModule/module-info.java
+
+jar -cvf mods/zoo.caterpillar.jar -C caterpillarModule/ .
+
+javac -p mods -d  butterflyModule buttgerflyModule/zoo/butterfly/Butterfly.java butterflyModule/module-info.java
