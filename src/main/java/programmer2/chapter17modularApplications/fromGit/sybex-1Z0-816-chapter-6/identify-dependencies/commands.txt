@@ -1,0 +1,12 @@
+first to find out what is missing in module info to create a module
+javac -target zoo/dinos/Animatronic.java
+jar -cvf zoo.dinos.jar target/zoo/dinos/Animatronic.class
+jdeps zoo.dinos.jar
+module info needs to have required jdk.unsupported, java.base is added by default
+now creating module jar
+javac -d target zoo/dinos/Animatronic.java module-info.java
+jar -cvf mods/zoo.dinos.jar -C target/ .
+
+last jar cmd cant create mods folder. needed to be created manually
+
+
