@@ -1,0 +1,20 @@
+classpath
+----------------------------------
+serviceProviderInterfaceModule
+javac -d class-path/target zoo/tours/api/*.java
+jar -cvf class-path/jar/zoo.tours.api.jar -C class-path/target/ .
+
+serviceProviderModule
+javac -d class-path/target zoo/tours/agency/*.java -cp ../serviceProviderInterfaceModule/class-path/jar/zoo.tours.api.jar
+jar -cvf class-path/jar/zoo.tours.agency.jar -C class-path/target/ .
+
+serviceLocatorModule
+javac -d class-path/target zoo/tours/reservations/*.java -cp ..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar
+jar -cvf .\class-path\jar\zoo.tours.reservations.jar -C .\class-path\target\  .
+
+consumerModule
+javac -d class-path\target zoo\visitor\*.java -classpath "..\serviceLocatorModule\class-path\jar\zoo.tours.reservations.jar;..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar"
+jar -cvf .\class-path\jar\zoo.visitor.jar -C .\class-path\target\ .
+java -cp class-path\jar\zoo.visitor.jar zoo.visitor.Tourist
+java -cp ".\..\serviceLocatorModule\class-path\jar\zoo.tours.reservations.jar;.\..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar;.\class-path\jar\zoo.visitor.jar" zoo.visitor.Tourist
+java -cp ".\..\serviceLocatorModule\class-path\jar\zoo.tours.reservations.jar;.\..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar;.\..\serviceProviderModule\class-path\jar\zoo.tours.agency.jar;.\class-path\jar\zoo.visitor.jar" zoo.visitor.Tourist
