@@ -1,12 +1,16 @@
 classpath
 ----------------------------------
+!!jar cmd does not create folders. they must exist before executing jar
+
 serviceProviderInterfaceModule
+!!must be defined in META-INF which implementation is used
 javac -d class-path/target zoo/tours/api/*.java
 jar -cvf class-path/jar/zoo.tours.api.jar -C class-path/target/ .
 
 serviceProviderModule
+!!first  service provider interface module must define this implementation in meta-inf folder
 javac -d class-path/target zoo/tours/agency/*.java -cp ../serviceProviderInterfaceModule/class-path/jar/zoo.tours.api.jar
-jar -cvf class-path/jar/zoo.tours.agency.jar -C class-path/target/ .
+jar -cvf class-path/jar/zoo.tours.api.jar -C class-path/target/ .
 
 serviceLocatorModule
 javac -d class-path/target zoo/tours/reservations/*.java -cp ..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar
@@ -15,6 +19,14 @@ jar -cvf .\class-path\jar\zoo.tours.reservations.jar -C .\class-path\target\  .
 consumerModule
 javac -d class-path\target zoo\visitor\*.java -classpath "..\serviceLocatorModule\class-path\jar\zoo.tours.reservations.jar;..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar"
 jar -cvf .\class-path\jar\zoo.visitor.jar -C .\class-path\target\ .
-java -cp class-path\jar\zoo.visitor.jar zoo.visitor.Tourist
-java -cp ".\..\serviceLocatorModule\class-path\jar\zoo.tours.reservations.jar;.\..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar;.\class-path\jar\zoo.visitor.jar" zoo.visitor.Tourist
 java -cp ".\..\serviceLocatorModule\class-path\jar\zoo.tours.reservations.jar;.\..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar;.\..\serviceProviderModule\class-path\jar\zoo.tours.agency.jar;.\class-path\jar\zoo.visitor.jar" zoo.visitor.Tourist
+
+using the second implementation
+multiPurposeModule
+!!first  service provider interface module must define this implementation in meta-inf folder
+javac -d class-path/target zoo/tours/hybrid/*.java -cp ../serviceProviderInterfaceModule/class-path/jar/zoo.tours.api.jar
+jar -cvf class-path/jar/zoo.tours.hybrid.jar -C class-path/target/ .
+java -cp ".\..\serviceLocatorModule\class-path\jar\zoo.tours.reservations.jar;.\..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar;.\..\serviceProviderModule\class-path\jar\zoo.tours.agency.jar;.\class-path\jar\zoo.tours.hybrid.jar" zoo.tours.hybrid.TourLengthCheck
+
+-------------
+module-path
