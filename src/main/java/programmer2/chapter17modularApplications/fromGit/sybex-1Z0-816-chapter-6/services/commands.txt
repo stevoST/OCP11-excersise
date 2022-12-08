@@ -28,5 +28,31 @@ javac -d class-path/target zoo/tours/hybrid/*.java -cp ../serviceProviderInterfa
 jar -cvf class-path/jar/zoo.tours.hybrid.jar -C class-path/target/ .
 java -cp ".\..\serviceLocatorModule\class-path\jar\zoo.tours.reservations.jar;.\..\serviceProviderInterfaceModule\class-path\jar\zoo.tours.api.jar;.\..\serviceProviderModule\class-path\jar\zoo.tours.agency.jar;.\class-path\jar\zoo.tours.hybrid.jar" zoo.tours.hybrid.TourLengthCheck
 
--------------
+---------------------
 module-path
+
+serviceProviderInterfaceModule
+javac -d module-path/target zoo/tours/api/*.java module-info.java
+jar -cvf module-path/jar/zoo.tours.api.jar -C module-path/target/ .
+
+serviceProviderModule
+javac -p ./../serviceProviderInterfaceModule/module-path/jar -d module-path/target zoo/tours/agency/*.java module-info.java
+jar -cvf module-path/jar/zoo.tours.agency.jar -C module-path/target/ .
+
+serviceLocatorModule
+javac -p ./../serviceProviderInterfaceModule/module-path/jar -d module-path/target zoo/tours/reservations/*.java module-info.java
+jar -cvf module-path/jar/zoo.tours.reservations.jar -C module-path/target/ .
+
+consumerModule
+javac -p "./../serviceProviderInterfaceModule/module-path/jar;./../serviceLocatorModule/module-path/jar" -d module-path/target zoo/visitor/*.java module-info.java
+jar -cvf module-path/jar/zoo.visitor.jar -C module-path/target/ .
+java -p "./../serviceProviderInterfaceModule/module-path/jar;./../serviceLocatorModule/module-path/jar;./module-path/jar;./../serviceProviderModule/module-path/jar" -m zoo.visitor/zoo.visitor.Tourist
+
+multiPurposeModule
+javac -p ./../serviceProviderInterfaceModule/module-path/jar -d module-path/target zoo/tours/hybrid/*.java module-info.java
+jar -cvf module-path/jar/zoo.tours.hybrid.jar -C module-path/target/ .
+#runs consumer with this implementation
+java -p "./../serviceProviderInterfaceModule/module-path/jar;./../serviceLocatorModule/module-path/jar;./module-path/jar;./../serviceProviderModule/module-path/jar;./../consumerModule/module-path/jar;" -m zoo.visitor/zoo.visitor.Tourist
+#runs TourLengthCheck with both implementations
+java -p "./../serviceProviderInterfaceModule/module-path/jar;./../serviceLocatorModule/module-path/jar;./module-path/jar;./../serviceProviderModule/module-path/jar" -m zoo.tours.hybrid/zoo.tours.hybrid.TourLengthCheck
+
