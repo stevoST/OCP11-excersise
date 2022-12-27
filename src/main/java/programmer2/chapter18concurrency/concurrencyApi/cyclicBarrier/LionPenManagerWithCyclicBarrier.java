@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class LionPenManagerWithCyclicBarrier {
+    //page 875
     private void removeLions() {
         System.out.println("Removing lions");
     }
