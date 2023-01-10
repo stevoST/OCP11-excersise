@@ -21,6 +21,7 @@ public class ZooInfo {
             service.execute(task2);
             service.execute(task1);
             System.out.println("end");
+            System.out.println(Runtime.getRuntime().availableProcessors());
         } finally {
             if (service != null) service.shutdown();
         }
