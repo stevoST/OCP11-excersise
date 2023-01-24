@@ -34,13 +34,13 @@ public class TestReduce {
                                 (size1, size2) -> size1 + size2)
 
         );
-        System.out.println(
+        System.out.println("Wrong reduce: " +
                 List.of(1,2,3,4,5,6)
                         .parallelStream()
                         .reduce(0, (a,b)->(a-b))
         );
 
-        System.out.println(
+        System.out.println("Parallel concat: " +
                 List.of("w", "o", "l", "f")
                         .parallelStream()
                         .reduce("X", String::concat)
