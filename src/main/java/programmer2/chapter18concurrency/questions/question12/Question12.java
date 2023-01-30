@@ -15,7 +15,7 @@ public class Question12 {
         } finally {
             if (service != null) service.shutdown();
         }
-        service.awaitTermination(2, TimeUnit.MINUTES);
+        service.awaitTermination(2, TimeUnit.SECONDS);
         System.out.println("Done!");
     }
 
