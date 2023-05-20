@@ -1,5 +1,6 @@
 package programmer2.chapter19io.io.console;
 
+import java.io.BufferedInputStream;
 import java.io.Console;
 import java.util.Arrays;
 

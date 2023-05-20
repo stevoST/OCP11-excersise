@@ -1,5 +1,9 @@
 package programmer1.chapter8.question22;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
 public class Child extends Person {
     static String name;
 
