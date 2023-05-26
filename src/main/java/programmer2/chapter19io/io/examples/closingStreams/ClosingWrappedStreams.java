@@ -1,4 +1,4 @@
-package programmer2.chapter19io.io.closingStreams;
+package programmer2.chapter19io.io.examples.closingStreams;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;

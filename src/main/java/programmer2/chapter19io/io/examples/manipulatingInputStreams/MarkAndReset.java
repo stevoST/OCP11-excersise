@@ -1,4 +1,4 @@
-package programmer2.chapter19io.io.manipulatingInputStreams;
+package programmer2.chapter19io.io.examples.manipulatingInputStreams;
 
 import java.io.*;
 

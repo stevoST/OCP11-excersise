@@ -1,4 +1,4 @@
-package programmer2.chapter19io.io.serialization;
+package programmer2.chapter19io.io.examples.serialization;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package programmer2.chapter19io.io.buffering;
+package programmer2.chapter19io.io.examples.buffering;
 
 import java.io.*;
 

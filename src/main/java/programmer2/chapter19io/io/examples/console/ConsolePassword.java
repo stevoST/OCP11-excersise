@@ -1,13 +1,12 @@
-package programmer2.chapter19io.io.console;
+package programmer2.chapter19io.io.examples.console;
 
-import java.io.BufferedInputStream;
 import java.io.Console;
 import java.util.Arrays;
 
 public class ConsolePassword {
     public static void main(String[] args) {
 
-        //run in cmd from root directory java -cp target/classes programmer2.chapter19io.io.console.ConsolePassword
+        //run in cmd from root directory java -cp target/classes programmer2.chapter19io.io.examples.console.ConsolePassword
     Console console = System.console();
     while(console==null){
 

@@ -1,8 +1,7 @@
-package programmer2.chapter19io.io.printingData;
+package programmer2.chapter19io.io.examples.printingData;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.sql.SQLOutput;
 
 public class PrintingData {
     public static void main(String[] args) throws FileNotFoundException {

@@ -1,4 +1,4 @@
-package programmer2.chapter19io.io.console;
+package programmer2.chapter19io.io.examples.console;
 
 import java.io.Console;
 
