@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class CreateTable {
+public class CreateTables {
     public static void main(String args[]) throws Exception {
 
         // add derby.jar to class path
@@ -15,15 +15,23 @@ public class CreateTable {
 
         //Executing the query
         String createTable = "CREATE TABLE EXHIBITS( "
-                + "Id INT NOT NULL, "
-                + "Name VARCHAR(255), "
-                + "NUM_ACRES INT, "
-                + "PRIMARY KEY (Id))";
+                + "id INT NOT NULL, "
+                + "name VARCHAR(255), "
+                + "num_acres INT, "
+                + "PRIMARY KEY (id))";
+
+        String createTable2 = "CREATE TABLE Names( "
+                + "id INT NOT NULL, "
+                + "species_id INT, "
+                + "name VARCHAR(255), "
+                + "PRIMARY KEY (id))";
 
         //Creating the Statement object
         PreparedStatement ps = conn.prepareStatement(createTable);
+        PreparedStatement ps2 = conn.prepareStatement(createTable2);
 
         ps.execute();
+        ps2.execute();
         System.out.println("Table created");
     }
 }
