@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InsertParametersIntoDb {
+public class ADInsertParametersIntoDb {
     public static void register(Connection conn, int key, int type, String name) throws SQLException {
 
         String sql = "INSERT INTO names VALUES(?, ?, ?)";
@@ -19,6 +19,8 @@ public class InsertParametersIntoDb {
     }
 
     public static void main(String[] args) throws SQLException {
+        // add derby.jar to class path
+
         Connection conn = DriverManager.getConnection("jdbc:derby:c:\\tools\\db-derby\\zoo;create=true;");
 
         register(conn,2, 3, "Elephant");

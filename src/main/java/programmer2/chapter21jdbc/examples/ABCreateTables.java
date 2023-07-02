@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class CreateTables {
+public class ABCreateTables {
     public static void main(String args[]) throws Exception {
 
         // add derby.jar to class path

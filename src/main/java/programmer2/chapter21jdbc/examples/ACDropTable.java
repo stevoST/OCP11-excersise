@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class DropTable {
+public class ACDropTable {
     public static void main(String args[]) throws Exception {
 
         // add derby.jar to class path
@@ -15,11 +15,14 @@ public class DropTable {
 
         //Executing the query
         String dropTable = "DROP TABLE EXHIBITS";
+        String dropTable2 = "DROP TABLE names";
 
         //Creating the Statement object
         PreparedStatement ps = conn.prepareStatement(dropTable);
+        PreparedStatement ps2 = conn.prepareStatement(dropTable2);
 
         ps.execute();
+        ps2.execute();
         System.out.println("Table dropped");
     }
 }

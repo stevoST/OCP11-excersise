@@ -1,15 +1,16 @@
 package programmer2.chapter21jdbc.examples;
 
-import java.io.FilterOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ModifyWithExecuteUpdate {
+public class AEModifyWithExecuteUpdate {
 
     // add derby.jar to class path
 
     public static void main(String[] args) throws SQLException {
+        // add derby.jar to class path
+
         var inserSql = "INSERT INTO exhibits VALUES(10, 'Deer', 3)";
         var updateSql = "UPDATE exhibits SET name = '' WHERE name = 'None'";
         var deletesql = "DELETE FROM exhibits WHERE id = 10";
