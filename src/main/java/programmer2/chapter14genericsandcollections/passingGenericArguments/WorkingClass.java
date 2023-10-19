@@ -12,6 +12,7 @@ public class WorkingClass {
 //    }
 
       <B extends A> B third(List<B> list){
+//      <T extends A> T third(List<T> list){
 //            return new B();
           return list.get(0);
     }

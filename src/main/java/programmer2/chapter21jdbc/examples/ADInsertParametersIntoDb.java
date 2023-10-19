@@ -1,9 +1,6 @@
 package programmer2.chapter21jdbc.examples;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ADInsertParametersIntoDb {
     public static void register(Connection conn, int key, int type, String name) throws SQLException {
