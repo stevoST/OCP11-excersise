@@ -5,6 +5,11 @@ import java.io.FilePermission;
 import java.security.*;
 
 public class FilePermissionChecker2 {
+
+    // https://docs.oracle.com/javase/8/docs/technotes/guides/security/doprivileged.html#using_doprivileged_api
+    // https://stackoverflow.com/questions/45897574/jvm-security-manager-file-permissions-custom-policy
+    // https://stackoverflow.com/questions/77321478/java-securitymanager-with-custom-policy-file-does-not-work-as-expected?noredirect=1#comment136313038_77321478
+
     public static void main(String[] args) {
         // set in VM options: -Djava.security.manager -Djava.security.policy=...\OCP11-excersise\src\main\java\interestingExamples\policy\custom.policy
         String filePath = "c:\\file.txt";
