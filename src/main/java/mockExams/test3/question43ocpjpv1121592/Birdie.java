@@ -1,2 +1,6 @@
-package mockExams.test3.question43ocpjpv1121592;public class Birdie {
+package mockExams.test3.question43ocpjpv1121592;
+
+interface Birdie {
+    void fly();
+    void eat();
 }
