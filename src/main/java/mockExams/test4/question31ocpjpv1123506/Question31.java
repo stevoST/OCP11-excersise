@@ -1,4 +1,4 @@
-package mockExams.test4;
+package mockExams.test4.question31;
 
 import java.util.Arrays;
 import java.util.List;
