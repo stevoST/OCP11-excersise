@@ -1,6 +1,5 @@
 package programmer2.chapter15FunctionalProgramming.reduce;
 
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ThreeArgumentReduce {

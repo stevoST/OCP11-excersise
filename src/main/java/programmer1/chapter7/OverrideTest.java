@@ -1,6 +1,7 @@
 package programmer1.chapter7;
 
 public class OverrideTest {
+
     public static void main(String[] args) {
         integer(3);
     }
