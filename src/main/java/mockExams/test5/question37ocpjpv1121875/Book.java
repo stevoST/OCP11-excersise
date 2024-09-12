@@ -2,7 +2,7 @@ package mockExams.test5.question37ocpjpv1121875;
 
 import java.util.Objects;
 
-public class Book {
+public class Book/* implements Comparable<Book>*/ {
     String isbn;
     String title;
 
@@ -39,4 +39,9 @@ public class Book {
     public int hashCode() {
         return Objects.hash(isbn);
     }
+
+//    @Override
+//    public int compareTo(Book o) {
+//        return this.getIsbn().compareTo(o.getIsbn());
+//    }
 }
