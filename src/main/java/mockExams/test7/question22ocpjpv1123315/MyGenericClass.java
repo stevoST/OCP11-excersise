@@ -10,7 +10,8 @@ class MyGenericClass<T> {
         MyGenericClass gc = new MyGenericClass();
         System.out.println(gc.transform(1)); //1
         System.out.println(gc.transform("hello")); //2
-        MyGenericClass<String> gcStr = new MyGenericClass<String>(); System.out.println(gcStr.transform(1.1)); //3
+        MyGenericClass<String> gcStr = new MyGenericClass<String>();
+        System.out.println(gcStr.transform(1.1)); //3
 
     }
 }
